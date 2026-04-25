@@ -1,3 +1,44 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://soulior.github.io/'
+languageCode = 'en-us'
+title = 'Team Phynx'
+theme = 'teamphynx'
+enableRobotsTXT = true
+
+[params]
+  description = 'Team Phynx is building Soulior, an early-stage 2D action game project by Lazy Cat.'
+  author = 'Lazy Cat'
+  devlogSection = 'devlog'
+  githubURL = 'https://github.com/teamphynx'
+  email = 'phynx.teamphynx@gmail.com'
+
+[taxonomies]
+  tag = 'tags'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+
+[permalinks]
+  devlog = '/devlog/:slug/'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menu.main]]
+    name = 'Devlog'
+    pageRef = '/devlog'
+    weight = 20
+  [[menu.main]]
+    name = 'Game'
+    pageRef = '/game'
+    weight = 30
+  [[menu.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 40
+  [[menu.main]]
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 50

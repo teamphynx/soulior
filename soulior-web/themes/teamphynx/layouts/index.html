@@ -1,0 +1,65 @@
+{{ define "main" }}
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Team Phynx</p>
+        <h1>Soulior</h1>
+        <p class="lead">A 2D action game project by Team Phynx.</p>
+        <p>Team Phynx is building Soulior, an early-stage 2D action game focused on action, atmosphere, and learning through development.</p>
+        <div class="actions">
+          <a class="button" href="{{ site.Params.githubURL }}">Follow Development on GitHub</a>
+          <a class="button button-secondary" href="{{ `game` | relURL }}">Read About The Game</a>
+        </div>
+      </div>
+      <div class="card status-card">
+        <h2>Current Status</h2>
+        <ul class="status-list">
+          <li><strong>Stage:</strong> Idea / early prototype preparation</li>
+          <li><strong>Engine:</strong> Godot 4</li>
+          <li><strong>Sprint cycle:</strong> 2 weeks</li>
+          <li><strong>Visuals:</strong> temporary prototype assets</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container stack">
+    <div class="section-heading">
+      <p class="eyebrow">Devlog</p>
+      <h2>Latest Devlogs</h2>
+    </div>
+    {{ $posts := first 3 (where site.RegularPages "Section" site.Params.devlogSection) }}
+    {{ range $posts }}
+      <article class="card">
+        <p class="meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      </article>
+    {{ else }}
+      <article class="card">
+        <h3>No devlogs published yet</h3>
+        <p>The first sprint note will appear here.</p>
+      </article>
+    {{ end }}
+    <p><a href="{{ `devlog` | relURL }}">View all devlogs</a></p>
+  </section>
+
+  <section class="container stack">
+    <div class="section-heading">
+      <p class="eyebrow">Game</p>
+      <h2>About Soulior</h2>
+    </div>
+    <article class="card">
+      <p>Soulior is still early, but the project is real, active, and worth following.</p>
+      <p>The current work is focused on laying a usable foundation, not making final claims about content or polish.</p>
+    </article>
+  </section>
+
+  <section class="container cta">
+    <div class="card cta-card">
+      <p class="eyebrow">Follow Development</p>
+      <h2>Track the project through sprint updates and public milestones.</h2>
+      <a class="button" href="{{ site.Params.githubURL }}">Go to GitHub</a>
+    </div>
+  </section>
+{{ end }}

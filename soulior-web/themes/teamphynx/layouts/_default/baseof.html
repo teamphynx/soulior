@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default `en-us` }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="{{ if .IsHome }}page-home{{ else }}page-{{ .Type | default `default` }}{{ end }}">
+    <div class="site-backdrop" aria-hidden="true">
+      <div class="backdrop-glow backdrop-glow-left"></div>
+      <div class="backdrop-glow backdrop-glow-right"></div>
+      <div class="backdrop-grid"></div>
+    </div>
+    <div class="site-shell">
+      {{ partial "header.html" . }}
+      <main class="site-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+  </body>
+</html>
